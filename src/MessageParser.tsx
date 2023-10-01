@@ -3,6 +3,7 @@ import React from 'react';
 const MessageParser = ({ children, actions }: any) => {
 
   const parse = (message: string) => {
+    // generateResponse is defined in src/ActionProvider.tsx
     actions.generateResponse(message);
   };
 
@@ -10,7 +11,7 @@ const MessageParser = ({ children, actions }: any) => {
     <div>
       {React.Children.map(children, (child) => {
         return React.cloneElement(child, {
-          parse: parse,
+          parse,
           actions: {},
         });
       })}
